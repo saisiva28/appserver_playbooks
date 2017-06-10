@@ -1,0 +1,104 @@
+ Introduction to Github
+
+Log on to Github https://github.com/
+
+Create UserId and logon to the portal using your userid
+
+Now add a new repository by clicking on new repository
+
+then pass the repository name (as test) , Pass any description required.
+
+Choose either it should be private or public and click on Create Repository
+
+Click on settings and click on SSH Keys
+
+Now connect to our linux server
+
+[root@gitserver ~] mkdir githubtest
+[root@gitserver ~] cd githubtest
+n
+[root@gitserver githubtest] ls -al ../.ssh/
+
+[root@gitserver githubtest] cat ../.ssh/id_rsa.pub
+
+copy the etire content and move back to SSK key content under setting in github.com.
+
+Click on Add SSH Key
+
+Paste it in the box under key and a title.
+
+This will allow us to carry git work either through http or ssh.
+
+Click on ssh and copy the ssh clone url
+
+paste the url
+
+[root@gitserver githubtest] git clone pastetheurl
+
+[root@gitserver githubtest] ll
+
+[root@gitserver githubtest] git config --global user.name "kalyan mandala"
+
+[root@gitserver githubtest] git config --global user.email "kalyan.mandalas@gmail.com"
+
+[root@gitserver githubtest] git config --global core.editor "nano"
+
+[root@gitserver githubtest] echo "feegrrjfyuuk" > Firstfile.txt
+
+[root@gitserver githubtest] git status
+
+[root@gitserver githubtest] git add *
+
+[root@gitserver githubtest] git status
+
+[root@gitserver githubtest] git commit -m " This is a first commit"
+
+[root@gitserver githubtest] git status
+
+Will that this branch master is ahead of 'origin/master by 1 commit
+and nothing to commit locally
+
+
+Check the Orgin master in the portal which doesn't show Firstfile.txt
+
+[root@gitserver githubtest] git push origin master
+
+[root@gitserver githubtest] git status
+
+Nohing to commit and everything up-to-date
+
+Check the Orgin master, we can see now Firstfile.txt
+
+Now create branch
+
+[root@gitserver githubtest] git checkout -b dev
+
+now create a file on dev branch
+
+[root@gitserver githubtest] echo "Development Branch Test" > dev.txt
+
+[root@gitserver githubtest] git status
+
+[root@gitserver githubtest] git add dev.txt
+
+[root@gitserver githubtest] git status
+
+[root@gitserver githubtest] git commit -m " This is a dev branch commit" dev.txt
+
+[root@gitserver githubtest] git push origin dev
+
+Check the Orgin master, we can see now readme.md & Firstfile.txt on branch master
+
+and dev.txt , readme.md & Firstfile.txt on dev branch
+
+If you want to see the graphical representations clickon graphs
+
+[root@gitserver githubtest] echo "Dev Test 2" > dev2.txt
+
+[root@gitserver githubtest] git add dev2.txt
+
+[root@gitserver githubtest] git status
+
+[root@gitserver githubtest] git commit -m " 2nd file commit" dev2.txt
+
+[root@gitserver githubtest] git push origin dev
